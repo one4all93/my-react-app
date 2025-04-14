@@ -58,3 +58,52 @@
 
 - for vs reduce 
   => array.reduce(reducer함수, initialValue)
+
+- useEffect
+  => 컴포넌트가 렌더링 될 때 특정 작업을 실행할 수 있도록 하는 HOOK
+  
+- fetch()
+  => 원격 API에 요청을 보낼때 사용
+
+- jsonplaceholder
+  => api테스트 할때 무료로 테스트 가능한 무료 rest api
+  
+- React.memo()**
+  => 리액트는 컴포넌트를 렌더링 한 후 , 이전에 렌더링된 결과와 비교해서 DOM업데이트를 결정해줌
+  렌더링 결과가 이전과 다르면 리액트는 돔을 업데이트 해줌
+  이 과정에서 React.memo()로 쌓여있다면 , 리액트는 컴포넌트를 렌더링하고 결과를 메모라이징해줌
+  다음 렌더링이 일어날때 컴포넌트의 props가 같다면 리액트는 메모라이징된 내용을 재사용함
+
+- Memoiztion
+  => 비용이 많이 드는 함수 호출의 결과를 저장하고 동일한 입력이 다시 발생할 때 캐시된 결과를 반환해서
+     프로그램 속도를 높여주는 최적화 기술
+
+  ** 리액트 렌더링 성능 최적화를 위햐서는 컴포넌트 분리 작업과 React.memo를 사용해주면 됨 **
+
+- React.useCallback()**
+  => 메모제이션된 함수를 반환 해주는 함수 :: 렌더링 되어지는 컴포넌트 안의 함수를 다시 렌더링 하지 않게 할때 사용
+  ex) const testFunction() = useCallback(() => {}, []);
+
+- shallow compare (얕은 비교)
+  => 숫자, 문자열 등 원시 자료형은 값을 비교함
+  배열,객체 등 참조 자료형은 값 혹은 속성을 비교하지 않고, 참조되는 위치를 비교함
+  언제사용 -> React.memo()에서 props를 비교할때
+	    리액트 컴포넌트가 렌더링을 하기 전 (state 변경이 있을때 / 부모 컴포넌트가 렌더링 될 때)
+
+- 리액트가 리렌더링 되는 경우 ****
+  => 1. state 변경이 있을 때  
+     2. 부모 컴포넌트가 렌더링 될 때
+     3. 새로운 props가 들어올 때(props값이 바뀔때??를 말하는건지..?)
+     4. shouldComponentUpdate에서 true가 반환될 때
+     5. forceUpdate가 실행될 때
+
+- 깊은 비교
+  => 얕은 비교와 달리 깊은 비교는 객체의 경우에도 값으로 비교함
+  1. Object depth가 깊지 않은 경우 :: JSON.stringfy()사용
+  2. Object depth가 깊은 경우 :: loads 라이브러리의 isEqual()사용
+
+
+
+
+
+
